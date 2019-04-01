@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+<h4 class="text-center"style="color:#ffeaed; background-color:#007bff">Add Service</h4>
+<form action="add_service" method="post">
+  <div class="col">
+    <div class="col">
+      <input type="date" class="form-control" placeholder="11/24/2018" name="date" id="date"required>
+    </div>
+  </div>
+    <div class="col">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Fall Muffler" name="location" id="location"required>
+    </div>
+  </div>
+    <div class="col">
+    <div class="col">
+      <input type="number" class="form-control" placeholder="250" min="0" name="price" id="price"required>
+    </div>
+  </div>
+    <div class="col">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="New tires" name="service" id="service"required>
+    </div>
+  </div>
+ </div>
+    <div class="col">
+    <div class="col">
+      <input type="number" class="form-control" placeholder="0" min="0" name="mileage" id="mileage"required>
+    </div>
+  </div>
+
+    <label for="Vehicle">Select Car</label>
+<select name="add_service_to_car">
+    {% for a in car%}
+     <option>{{ a.model }}</option>
+    {% endfor %}
+</select>
+{% csrf_token %}
+<br><button type="submit" class="btn btn-primary">Add Service</button></br>
+</form>
+</body>
+{% endblock content %}

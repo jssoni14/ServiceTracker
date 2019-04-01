@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<script>
+
+
+</script>
+
+<body>
+<h4 class="text-center"style="color:#ffeaed; background-color:#17a2b8">View Car</h4>
+<form method="post" id="car_form">
+<select class="form-control" name="view_car_by_driver" id="view_car_by_driver">
+    {% for a in driver%}
+     <option value="{{ a.name }}">{{a.name}}</option>
+    {% endfor %}
+</select>
+{% csrf_token %}
+    <br><button class="btn btn-primary" id="submit">View Car</button></br>
+</form>
+<div id ="table_box">
+
+</div>
+<table border="0" cellpadding="0" width="100%" id='car_table' class="table table-dark">
+<thead>
+    <tr>
+      <th scope="col">Make</th><th scope="col">Model</th><th scope="col">Year</th><th scope="col">Mileage</th>
+    </tr>
+  </thead>
+  <tbody>{% for d in my_car %}
+    <tr>
+
+      <td>{{ d.make}}</td>
+      <td>{{ d.model }}</td>
+      <td>{{ d.year }}</td>
+      <td>{{ d.mileage }}</td>
+{% endfor %}
+    </tr>
+
+  </tbody>
+
+
+</table>
+</body>
+{% endblock content %}

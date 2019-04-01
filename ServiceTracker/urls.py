@@ -1,0 +1,31 @@
+"""ServiceTracker URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/2.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from Trax.views import Add_Car, Add_Service, Add_Driver, View_Driver, View_Car, View_Service, Manufacture,Main
+
+urlpatterns = {
+    path('admin/', admin.site.urls),
+    path('add_driver', Add_Driver.as_view()),
+    path('add_car', Add_Car.as_view()),
+    path('add_service', Add_Service.as_view()),
+    path('view_driver', View_Driver.as_view()),
+    path('view_car', View_Car.as_view()),
+    path('view_service', View_Service.as_view()),
+    path('manufacture', Manufacture.as_view()),
+    path('main', Main.as_view())
+
+}

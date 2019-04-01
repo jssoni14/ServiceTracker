@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<script>
+var the_car="";
+function create_table(data) {
+        $("#service_table").html("");
+        var table_data="";
+        var the_table = $("<table />");
+        the_table.addClass("table table-dark");
+
+        var header = "<tr><th> Car </th><th> Date </th><th> Location </th><th> Price </th><th> Service </th><th> Mileage </th></tr>";
+        for(var i =0; i<data.length; i++){
+            if(data[i].car===the_car){
+                table_data+="<tr><td>"+ data[i].car+ "</td><td>"+ data[i].date+ "</td><td>"+ data[i].location+"</td><td>"+ data[i].price+"</td><td>"+ data[i].service+"</td><td>"+ data[i].mileage +"</td></tr>";
+            }
+       }
+
+        the_table.append(header);
+        the_table.append(table_data);
+        $('#service_table').append(the_table);
+}
+function getJson(){
+    the_car =$("#view_service_by_car option:selected").text();
+    var csrftoken = Cookies.get('csrftoken');
+    $.ajax({
+        "url":"view_service",
+        "method": "POST",
+        "success":create_table,
+        dataType:"json",
+        "headers":{"X-CSRFToken":csrftoken}
+
+      })
+    return false;
+}
+</script>
+<body>
+<h4 class="text-center"style="color:#ffeaed; background-color:#17a2b8">View Service</h4>
+<select class="form-control" name="view_service_by_car" id="view_service_by_car">
+    {% for a in cars%}
+     <option value="{{a.model}}">{{a.model}}</option>
+    {% endfor %}
+</select>
+<br><button class="btn btn-primary" onclick="getJson();">View Service</button></br>
+<div id="service_table">
+
+
+</div>
+</body>
+{% endblock content%}

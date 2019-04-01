@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.js"></script>
+    <title>Service Tracker</title>
+</head>
+<body>
+
+<h2 class="text-center" style="color:#ffeaed; background-color:#dc2d48">Service Tracker</h2>
+<nav class="nav justify-content-center"style="background-color: black">
+  <form class="form-inline">
+    <a href="add_car"><button class="btn btn-primary" type="button">Add Car</button></a>
+    <a href="add_service"><button class="btn btn-primary" type="button">Add Service</button></a>
+      <a href="add_driver"><button class="btn btn-primary" type="button">Add Driver</button></a>
+
+      <a href="view_driver"><button class="btn btn-info" type="button">View Driver</button></a>
+      <a href="view_car"><button class="btn btn-info" type="button">View Car</button></a>
+     <a href="view_service"><button class="btn btn-info" type="button">View Service</button></a>
+
+<a href="main"><button class="btn btn-secondary" type="button">Home</button></a>
+<a href="manufacture"><button class="btn btn-secondary" type="button">Brand Website</button></a>
+
+
+
+  </form>
+</nav>
+
+{% block content %}{% endblock content %}
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+
+<h4 class="text-center"style="color:#ffeaed; background-color:#007bff">Add Car</h4>
+<form action="add_car" method="post">
+  <div class="col">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Make" name="make" id="make"required>
+    </div>
+  </div>
+    <div class="col">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Model" name="model" id="model"required>
+    </div>
+  </div>
+    <div class="col">
+    <div class="col">
+      <input type="number" class="form-control" placeholder="Year" name="year" id="year"required>
+    </div>
+  </div>
+      <div class="col">
+    <div class="col">
+      <input type="number" class="form-control" placeholder="Mileage" name="mileage" min="0" id="mileage"required>
+    </div>
+  </div>
+<label for="driver">Select Driver</label>
+<select name="add_car_to_driver">
+    {% for a in driver%}
+     <option>{{ a.name }}</option>
+    {% endfor %}
+</select>
+{% csrf_token %}
+    <br><button type="submit" class="btn btn-primary">Add Car</button></br>
+
+</form>
+</body>
+{% endblock content %}

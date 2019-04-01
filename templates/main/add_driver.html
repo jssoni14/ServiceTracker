@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+<h4 class="text-center"style="color:#ffeaed; background-color:#007bff">Add Driver</h4>
+<form action="add_driver" method="post">
+  <div class="col">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="first and last name" name="name" id="name" required>
+    </div>
+  </div>
+{% csrf_token %}
+    <br>
+    <button type="submit" class="btn btn-primary">Add Driver</button></br>
+</form>
+</body>
+{% endblock content %}
